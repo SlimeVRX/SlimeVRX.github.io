@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nguyen Thanh Tin | Game Developer Portfolio</title>
+    <!-- styles remain the same -->
+    <style>
+        :root { --bg-color:#0c0f1e; --text-color:#ffffff; --accent-color:#00ff7f; --secondary-color:#7f71ff; --dark-panel:rgba(20,24,41,0.7); }
+        *{box-sizing:border-box;margin:0;padding:0;}
+        body{background:var(--bg-color);color:var(--text-color);font-family:"Segoe UI",Tahoma,Geneva,Verdana,sans-serif;line-height:1.6;scroll-behavior:smooth;}
+        a{text-decoration:none;}
+        .container{max-width:1200px;margin:0 auto;padding:0 20px;}
+        nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0;border-bottom:1px solid rgba(255,255,255,0.1);} .logo{font-size:24px;font-weight:700;color:var(--accent-color);} .nav-links{display:flex;gap:40px;} .nav-links a{color:var(--text-color);font-weight:500;transition:color .3s;} .nav-links a:hover,.nav-links a.active{color:var(--accent-color);} .resume-btn{background:transparent;color:var(--accent-color);border:1px solid var(--accent-color);padding:8px 20px;border-radius:4px;cursor:pointer;font-weight:500;transition:all .3s;} .resume-btn:hover{background:var(--accent-color);color:var(--bg-color);} 
+        .hero{height:100vh;display:flex;flex-direction:column;justify-content:center;} .hero-subtitle{color:var(--secondary-color);margin-bottom:10px;font-size:18px;} .hero-title{font-size:64px;font-weight:700;line-height:1.1;} .hero-subtitle-2{font-size:36px;color:#8f9cb3;margin-bottom:20px;} .hero-desc{max-width:600px;color:#b0b7c3;margin-bottom:30px;} .cta-button{background:var(--accent-color);color:var(--bg-color);padding:12px 24px;border-radius:4px;font-weight:500;transition:all .3s;display:inline-block;} .cta-button:hover{background:#00cc65;transform:translateY(-2px);} 
+        section{padding:100px 0;} .section-title{display:flex;align-items:center;margin-bottom:50px;} .section-number{color:var(--secondary-color);margin-right:10px;font-weight:700;} .section-name{font-size:32px;font-weight:700;} .section-line{flex-grow:1;height:1px;background:rgba(255,255,255,0.1);margin-left:20px;} 
+        .about-content{display:flex;flex-wrap:wrap;gap:50px;} .about-text{flex:1 1 300px;} .about-image{flex:1 1 300px;border:2px solid var(--secondary-color);border-radius:8px;overflow:hidden;} .about-image img{width:100%;display:block;} .tools-title{margin-top:30px;font-weight:700;} .tools-list{display:flex;flex-wrap:wrap;gap:15px;} .tool-item{background:var(--dark-panel);padding:8px 16px;border-radius:4px;font-size:14px;} 
+        .experience-card{margin-bottom:40px;} .job-title{display:flex;flex-wrap:wrap;font-size:20px;margin-bottom:5px;} .job-position{font-weight:700;margin-right:5px;} .job-company{color:var(--accent-color);} .job-duration{color:#b0b7c3;margin-bottom:15px;} .job-responsibilities{list-style:none;padding-left:0;} .job-responsibilities li{position:relative;padding-left:25px;margin-bottom:10px;} .job-responsibilities li::before{content:"▹";position:absolute;left:0;color:var(--accent-color);} 
+        .project-card{display:flex;flex-wrap:wrap;margin-bottom:80px;position:relative;} .project-card:nth-child(even){flex-direction:row-reverse;} .project-image{flex:1 1 350px;position:relative;} .project-image img{width:100%;border-radius:8px;} .project-image::after{content:"";position:absolute;inset:0;background:rgba(127,113,255,.25);border-radius:8px;transition:background .3s;} .project-card:hover .project-image::after{background:rgba(127,113,255,0);} .project-content{flex:1 1 300px;padding:20px;z-index:2;} .project-card:nth-child(odd) .project-content{margin-left:-80px;} .project-card:nth-child(even) .project-content{margin-right:-80px;text-align:right;} .project-overline{color:var(--accent-color);font-weight:500;margin-bottom:10px;} .project-title{font-size:26px;margin-bottom:15px;} .project-description{background:var(--dark-panel);padding:20px;border-radius:8px;margin-bottom:20px;} .project-tech-list{display:flex;flex-wrap:wrap;gap:15px;margin-bottom:15px;} .project-card:nth-child(even) .project-tech-list{justify-content:flex-end;} .project-tech-item{font-size:13px;color:#b0b7c3;} .project-links{display:flex;gap:15px;} .project-card:nth-child(even) .project-links{justify-content:flex-end;} .project-link{font-size:22px;color:var(--text-color);transition:color .3s;} .project-link:hover{color:var(--accent-color);} 
+        .contact{text-align:center;} .contact-heading{font-size:42px;margin-bottom:20px;} .contact-subheading{max-width:600px;margin:0 auto 40px;color:#b0b7c3;} .contact-cta{background:transparent;color:var(--accent-color);border:1px solid var(--accent-color);padding:16px 26px;border-radius:4px;font-weight:500;transition:all .3s;display:inline-block;} .contact-cta:hover{background:rgba(0,255,127,.15);transform:translateY(-3px);} .social-links{display:flex;justify-content:center;gap:25px;margin-top:50px;} .social-link{font-size:24px;color:var(--text-color);transition:color .3s,transform .3s;} .social-link:hover{color:var(--accent-color);transform:translateY(-3px);} footer{padding:20px 0;text-align:center;color:#8f9cb3;font-size:14px;} @media(max-width:768px){.hero-title{font-size:48px;}.hero-subtitle-2{font-size:28px;}.about-content,.project-card{flex-direction:column;}.project-card:nth-child(even) .project-content,.project-card:nth-child(odd) .project-content{margin:0;text-align:left;}}
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="container">
+        <nav>
+            <div class="logo">TT</div>
+            <div class="nav-links">
+                <a href="#about" class="active">01. About</a>
+                <a href="#experience">02. Experience</a>
+                <a href="#projects">03. Projects</a>
+                <a href="#contact">04. Contact</a>
+            </div>
+            <a href="https://drive.google.com/file/d/1cQ_KnJccsSoDLH20we2htbl3OPmhc9NN/view?usp=sharing" class="resume-btn">Resume (PDF)</a>
+        </nav>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero" id="top">
+        <div class="container">
+            <h3 class="hero-subtitle">Hello, I'm</h3>
+            <h1 class="hero-title">Tin Nguyen.</h1>
+            <h2 class="hero-subtitle-2">I work on Game Development & AI Researcher</h2>
+            <p class="hero-desc">
+                Game Developer / AI Researcher with expertise in Unreal Engine, specializing in multiplayer systems, Gameplay Ability System (GAS), and AI integration. Passionate about creating immersive gaming experiences through innovative technologies.
+            </p>
+            <p class="hero-desc">
+                I am currently focusing on integrating AI into game development workflows to accelerate production and enhance gameplay experiences.
+            </p>
+            <a href="#contact" class="cta-button">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <div class="section-number">01.</div>
+                <div class="section-name">About Me</div>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="hero-desc">
+                        Hi, I'm Tin, a passionate Game developer and AI researcher based in Da Nang.
+                    </p>
+                    <p class="hero-desc">
+                        I started my career as an R&D AI Engineer at Atoma Technology, where I developed solutions for 3D body scanning, virtual clothing fitting, fire detection, and automated parking systems. This experience laid the foundation for my interest in combining AI with interactive applications.
+                    </p>
+                    <p class="hero-desc">
+                        I later transitioned to game development at Gianty Vietnam, where I've been working on multiplayer systems, gameplay mechanics, and AI-powered tools to accelerate game development workflows.
+                    </p>
+                    <p class="hero-desc">
+                        My career path follows a progression from Roblox to UEFN to Unreal Engine, with increasing technical complexity at each step. I'm particularly interested in UEFN's modular code organization approach and applying similar principles to Unreal Engine development.
+                    </p>
+                    <div class="tools-title">Game Development:</div>
+                    <div class="tools-list">
+                        <span class="tool-item">Unreal Engine</span>
+                        <span class="tool-item">GAS</span>
+                        <span class="tool-item">Multiplayer Networking</span>
+                        <span class="tool-item">Roblox</span>
+                        <span class="tool-item">UEFN</span>
+                    </div>
+                    <div class="tools-title">AI & Tools:</div>
+                    <div class="tools-list">
+                        <span class="tool-item">Python</span>
+                        <span class="tool-item">LLM Integration</span>
+                        <span class="tool-item">Computer Vision</span>
+                        <span class="tool-item">Motion Capture</span>
+                    </div>
+                    <div class="tools-title">3D & Animation:</div>
+                    <div class="tools-list">
+                        <span class="tool-item">iClone/CC4</span>
+                        <span class="tool-item">Blender</span>
+                        <span class="tool-item">Daz3D</span>
+                        <span class="tool-item">MikuMikuDance</span>
+                    </div>                  
+                </div>
+                <div class="about-image">
+                    <img src="https://private-user-images.githubusercontent.com/99313947/438578013-3bbeb3f7-0fa4-4ac8-b8a4-3d2abdb14923.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDU5MDQ1NDAsIm5iZiI6MTc0NTkwNDI0MCwicGF0aCI6Ii85OTMxMzk0Ny80Mzg1NzgwMTMtM2JiZWIzZjctMGZhNC00YWM4LWI4YTQtM2QyYWJkYjE0OTIzLmpwZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA0MjklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNDI5VDA1MjQwMFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTA1ZGY2YWM3ZjAwMjVhMTkyN2UwMDI0MWUwMWJkNmU4N2M5ZGYxZGQ5NGEzYjczYzUzMTI1MjFkOWQ3OGIyZmImWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.9NfzbUyay5oXWbPkAaLf3FUh9tYUbNCsWnoO9RfHZp8" alt="Portrait of Nguyen Thanh Tin" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-title">
+                <div class="section-number">02.</div>
+                <div class="section-name">Experience</div>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="experience-card">
+                <div class="job-title">
+                    <span class="job-position">Junior Game Developer @</span>
+                    <a class="job-company" href="https://www.gianty.com/" target="_blank" rel="noopener noreferrer">Gianty Vietnam</a>
+                </div>
+                <div class="job-duration">Sep 2023 – May 2025 · Da Nang, Viet Nam</div>
+                <ul class="job-responsibilities">
+                    <li>Worked with various projects using Unreal Engine 5, focusing on multiplayer systems and game optimization.</li>
+                    <li>Refactored gameplay modules from Blueprints to C++ for improved performance and maintainability.</li>
+                    <li>Implemented complex multiplayer logic using Gameplay Ability System (GAS), including replication, RPCs, authority management, and client-side prediction to ensure robust gameplay synchronization.</li>
+                    <li>Developed GenCode and Gen3DAsset, AI-powered tools to accelerate Roblox game development workflows.</li>
+                    <li>Developed 2D Anime Background Generator and 3D Asset Generator systems, and also collaborated closely with Artists to integrate AI-generated models into the production pipeline.</li>
+                </ul>
+            </div>
+
+            <div class="experience-card">
+                <div class="job-title">
+                    <span class="job-position">Intern Game Developer @</span>
+                    <a class="job-company" href="https://www.gianty.com/" target="_blank" rel="noopener noreferrer">Gianty Vietnam</a>
+                </div>
+                <div class="job-duration">Sep 2022 – Sep 2023 · Da Nang, Viet Nam</div>
+                <ul class="job-responsibilities">
+                    <li>Developed custom tools for converting animations from Maya → iClone/CC4 → Unreal Engine.</li>
+                    <li>Collaborated on the development of HanaVR Vtuber, integrating motion capture animations from MikuMikuDance and Daz3D into Unreal Engine.</li>
+                    <li>Contributed to the production of Memory HoiAn Anime, leveraging AI technologies (Stable Diffusion, ControlNet, Lora, AI Mocap) for animation and asset generation.</li>
+                </ul>
+            </div>
+
+            <div class="experience-card">
+                <div class="job-title">
+                    <span class="job-position">Junior R&D AI Engineer @</span>
+                    <a class="job-company" href="https://www.atoma.com.vn/" target="_blank" rel="noopener noreferrer">Atoma Technology</a>
+                </div>
+                <div class="job-duration">Mar 2019 – Jul 2020 · Da Nang, Viet Nam</div>
+                <ul class="job-responsibilities">
+                    <li>Developed 3D body scanning and virtual clothing fitting solutions.</li>
+                    <li>Developed algorithms for fire detection and automated parking detection using computer vision techniques.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-title">
+                <div class="section-number">03.</div>
+                <div class="section-name">Projects</div>
+                <div class="section-line"></div>
+            </div>
+
+            <!-- Lyra Analysis -->
+            <div class="project-card">
+                <div class="project-image"><img src="https://private-user-images.githubusercontent.com/99313947/438593517-b3330365-cbf6-4c1f-9878-07c39b2fcdf1.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDU5MDY3NDIsIm5iZiI6MTc0NTkwNjQ0MiwicGF0aCI6Ii85OTMxMzk0Ny80Mzg1OTM1MTctYjMzMzAzNjUtY2JmNi00YzFmLTk4NzgtMDdjMzliMmZjZGYxLmpwZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA0MjklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNDI5VDA2MDA0MlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWVhN2VmMzJmZWMxMWFiNmM1OGE0YmE5ODQzMmZlNzk3MDBjMWM1MjVkZDA0ZjU3NjBlZmUwZjhlYTk3MTk3ZDcmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.vHTU2TDe-voD2xk_RSwvfkdQP5LBgwXXQAGgtkXlGns" alt="Lyra Framework" /></div>
+                <div class="project-content">
+                    <div class="project-overline">Featured Project</div>
+                    <h3 class="project-title">Lyra Framework Analysis</h3>
+                    <div class="project-description">A deep‑dive into the Lyra Starter Game architecture: Modular Gameplay Pattern, GAS, networking and performance optimisation.</div>
+                    <div class="project-tech-list">
+                        <span class="project-tech-item">Unreal Engine 5</span>
+                        <span class="project-tech-item">Multiplayer</span>
+                        <span class="project-tech-item">GAS</span>
+                        <span class="project-tech-item">C++</span>
+                        <span class="project-tech-item">Blueprint</span>
+                    </div>
+                    <div class="project-links"><a href="https://drive.google.com/file/d/136c1cXbXZ5RjAIulF80Lg7LVf82PheJs/view?usp=sharing" class="project-link" title="Read more">🔗</a></div>
+                </div>
+            </div>
+
+            <!-- Memory HoiAn -->
+            <div class="project-card">
+                <div class="project-image"><img src="https://private-user-images.githubusercontent.com/99313947/438604539-7764354d-7393-494c-8e91-ffad273b8f76.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDU5MDg2ODAsIm5iZiI6MTc0NTkwODM4MCwicGF0aCI6Ii85OTMxMzk0Ny80Mzg2MDQ1MzktNzc2NDM1NGQtNzM5My00OTRjLThlOTEtZmZhZDI3M2I4Zjc2LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA0MjklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNDI5VDA2MzMwMFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTExN2YyNzcxMmRkNmUxMTJmZDJhZTU3MTkxMjY4ZGFmNzUwN2M2M2VhMWI0M2FiNzRiNzk5YmU0MzQ4YTQ5NjImWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.iHesvTrJzynHHNBs1PUAHYZWdWCYRIrR-0CwyJoxYD8" alt="Memory Hoi An" /></div>
+                <div class="project-content">
+                    <div class="project-overline">Featured Project</div>
+                    <h3 class="project-title">Memory Hoi An Anime</h3>
+                    <div class="project-description">AI‑driven 2D film celebrating Hoi An’s heritage, produced with Stable Diffusion, ControlNet, LoRA and AI Mocap.</div>
+                    <div class="project-tech-list"><span class="project-tech-item">Stable Diffusion</span><span class="project-tech-item">ControlNet</span><span class="project-tech-item">LoRA</span><span class="project-tech-item">AI Mocap</span></div>
+                    <div class="project-links"><a href="https://www.youtube.com/watch?v=syjljOnKADQ" class="project-link" title="Watch">🔗</a></div>
+                </div>
+            </div>
+
+            <!-- HanaVR -->
+            <div class="project-card">
+                <div class="project-image"><img src="https://private-user-images.githubusercontent.com/99313947/438608290-46a15bc1-4067-4218-9751-048a66df686c.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDU5MDkzOTUsIm5iZiI6MTc0NTkwOTA5NSwicGF0aCI6Ii85OTMxMzk0Ny80Mzg2MDgyOTAtNDZhMTViYzEtNDA2Ny00MjE4LTk3NTEtMDQ4YTY2ZGY2ODZjLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA0MjklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNDI5VDA2NDQ1NVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTAzM2ZkMWM0MWMzZWE1YzdhZGQ1NWM0YjQxN2VlMmFhYjU4MzA4MTZiMjI3NDgyYjk3NTMyZDUxNWJhMGVhZDMmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.atn-N6KmX-B0At1excWzh0vxb51vO-ltKClKtIAxrqo" alt="HanaVR" /></div>
+                <div class="project-content">
+                    <div class="project-overline">Featured Project</div>
+                    <h3 class="project-title">HanaVR Vtuber</h3>
+                    <div class="project-description">A virtual idol built in Unreal Engine with Daz3D and MMD assets.</div>
+                    <div class="project-tech-list"><span class="project-tech-item">Unreal Engine</span><span class="project-tech-item">MMD</span><span class="project-tech-item">Blender</span><span class="project-tech-item">Daz3D</span><span class="project-tech-item">CC4</span></div>
+                    <div class="project-links"><a href="https://www.youtube.com/@hanaVR/shorts" class="project-link" title="Watch">🔗</a></div>
+                </div>
+            </div>
+
+            <!-- Mocap AI -->
+            <div class="project-card">
+                <div class="project-image"><img src="https://raw.githubusercontent.com/Xinyu-Yi/TransPose/refs/heads/main/data/figures/1.gif" alt="Mocap AI" /></div>
+                <div class="project-content">
+                    <div class="project-overline">Featured Project</div>
+                    <h3 class="project-title">Mocap AI</h3>
+                    <div class="project-description">A real‑time motion capture system using six IMUs and AI models (TransPose, PIP) streaming directly into Unreal Engine MetaHuman.</div>
+                    <div class="project-tech-list"><span class="project-tech-item">Python</span><span class="project-tech-item">C++</span><span class="project-tech-item">PyTorch</span><span class="project-tech-item">ONNX</span><span class="project-tech-item">Unreal Engine</span></div>
+                    <div class="project-links"><a href="https://www.youtube.com/watch?v=U5kN4Fcjxos" class="project-link" title="Demo">🔗</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container contact">
+            <div class="section-title">
+                <div class="section-number">04.</div>
+                <div class="section-name">Contact</div>
+                <div class="section-line"></div>
+            </div>
+            <h2 class="contact-heading">Get In Touch</h2>
+            <p class="contact-subheading">Interested in working together or just want to say hi? Drop me a line and let's chat!</p>
+            <a href="mailto:thanhtin1997@gmail.com" class="contact-cta">Say Hello</a>
+            <div class="social-links">
+                <a class="social-link" href="https://github.com/slimevrx" title="GitHub" aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 438.549 438.549" width="24" height="24" fill="currentColor">
+                        <title>GitHub</title>
+                        <path d="M409.132,114.573c-19.608-33.596-46.205-60.194-79.798-79.8C295.736,15.166,259.057,5.365,219.271,5.365
+                                 c-39.781,0-76.472,9.804-110.063,29.408c-33.596,19.605-60.192,46.204-79.8,79.8C9.803,148.168,0,184.854,0,224.63 c0,47.78,13.94,90.745,41.827,128.906c27.884,38.164,63.906,64.572,108.063,79.227c5.14,0.954,8.945,0.283,11.419-1.996
+                                 c2.475-2.282,3.711-5.14,3.711-8.562c0-0.571-0.049-5.708-0.144-15.417c-0.098-9.709-0.144-18.179-0.144-25.406l-6.567,1.136
+                                 c-4.187,0.767-9.469,1.092-15.846,1c-6.374-0.089-12.991-0.757-19.842-1.999c-6.854-1.231-13.229-4.086-19.13-8.559
+                                 c-5.898-4.473-10.085-10.328-12.56-17.556l-2.855-6.57c-1.903-4.374-4.899-9.233-8.992-14.559
+                                 c-4.093-5.331-8.232-8.945-12.419-10.848l-1.999-1.431c-1.332-0.951-2.568-2.098-3.711-3.429c-1.142-1.331-1.997-2.663-2.568-3.997
+                                 c-0.572-1.335-0.098-2.43,1.427-3.289c1.525-0.859,4.281-1.276,8.28-1.276l5.708,0.853c3.807,0.763,8.516,3.042,14.133,6.851
+                                 c5.614,3.806,10.229,8.754,13.846,14.842c4.38,7.806,9.657,13.754,15.846,17.847c6.184,4.093,12.419,6.136,18.699,6.136
+                                 c6.28,0,11.704-0.476,16.274-1.423c4.565-0.952,8.848-2.383,12.847-4.285c1.713-12.758,6.377-22.559,13.988-29.41
+                                 c-10.848-1.14-20.601-2.857-29.264-5.14c-8.658-2.286-17.605-5.996-26.835-11.14c-9.235-5.137-16.896-11.516-22.985-19.126
+                                 c-6.09-7.614-11.088-17.61-14.987-29.979c-3.901-12.374-5.852-26.648-5.852-42.826c0-23.035,7.52-42.637,22.557-58.817
+                                 c-7.044-17.318-6.379-36.732,1.997-58.24c5.52-1.715,13.706-0.428,24.554,3.853c10.85,4.283,18.794,7.952,23.84,10.994
+                                 c5.046,3.041,9.089,5.618,12.135,7.708c17.705-4.947,35.976-7.421,54.818-7.421s37.117,2.474,54.823,7.421l10.849-6.849
+                                 c7.419-4.57,16.18-8.758,26.262-12.565c10.088-3.805,17.802-4.853,23.134-3.138c8.562,21.509,9.325,40.922,2.279,58.24
+                                 c15.036,16.18,22.559,35.787,22.559,58.817c0,16.178-1.958,30.497-5.853,42.966c-3.9,12.471-8.941,22.457-15.125,29.979
+                                 c-6.191,7.521-13.901,13.85-23.131,18.986c-9.232,5.14-18.182,8.85-26.84,11.136c-8.662,2.286-18.415,4.004-29.263,5.146
+                                 c9.894,8.562,14.842,22.077,14.842,40.539v60.237c0,3.422,1.19,6.279,3.572,8.562c2.379,2.279,6.136,2.95,11.276,1.995
+                                 c44.163-14.653,80.185-41.062,108.068-79.226c27.88-38.161,41.825-81.126,41.825-128.906
+                                 C438.536,184.851,428.728,148.168,409.132,114.573z">
+                        </path>
+                    </svg>
+                </a>
+                <a class="social-link" href="https://linkedin.com/in/thanhtin1997" title="LinkedIn" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 438.549 438.549" width="24" height="24" fill="currentColor">
+                        <title>LinkedIn</title>
+                        <path d="M430.117,261.543V420.56h-92.188V272.193c0-37.271-13.334-62.707-46.703-62.707
+                                 c-25.473,0-40.632,17.142-47.301,33.724c-2.432,5.928-3.058,14.179-3.058,22.477V420.56h-92.219c0,0,1.242-251.285,0-277.32h92.21
+                                 v39.309c-0.187,0.294-0.43,0.611-0.606,0.896h0.606v-0.896c12.251-18.869,34.13-45.824,83.102-45.824
+                                 C384.633,136.724,430.117,176.361,430.117,261.543z M52.183,9.558C20.635,9.558,0,30.251,0,57.463
+                                 c0,26.619,20.038,47.94,50.959,47.94h0.616c32.159,0,52.159-21.317,52.159-47.94C103.128,30.251,83.734,9.558,52.183,9.558z
+                                 M5.477,420.56h92.184v-277.32H5.477V420.56z">
+                        </path>
+                    </svg>
+                </a>
+                <a class="social-link" href="https://x.com/Tn23008624" title="X" aria-label="X">
+                    <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 612 612" width="24" height="24" fill="currentColor">
+                        <title>X</title>
+                        <path d="M612,116.258c-22.525,9.981-46.694,16.75-72.088,19.772c25.929-15.527,45.777-40.155,55.184-69.411
+                                 c-24.322,14.379-51.169,24.82-79.775,30.48c-22.907-24.437-55.49-39.658-91.63-39.658c-69.334,0-125.551,56.217-125.551,125.513
+                                 c0,9.828,1.109,19.427,3.251,28.606C197.065,206.32,104.556,156.337,42.641,80.386c-10.823,18.51-16.98,40.078-16.98,63.101
+                                 c0,43.559,22.181,81.993,55.835,104.479c-20.575-0.688-39.926-6.348-56.867-15.756v1.568c0,60.806,43.291,111.554,100.693,123.104
+                                 c-10.517,2.83-21.607,4.398-33.08,4.398c-8.107,0-15.947-0.803-23.634-2.333c15.985,49.907,62.336,86.199,117.253,87.194
+                                 c-42.947,33.654-97.099,53.655-155.916,53.655c-10.134,0-20.116-0.612-29.944-1.721c55.567,35.681,121.536,56.485,192.438,56.485
+                                 c230.948,0,357.188-191.291,357.188-357.188l-0.421-16.253C573.872,163.526,595.211,141.422,612,116.258z">
+                        </path>
+                    </svg>
+                </a>
+            </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container"><p>Designed & Built by Nguyen Thanh Tin · 2025</p></div>
+    </footer>
+</body>
+</html>
